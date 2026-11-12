@@ -1,0 +1,10 @@
+nova-de/
+├── src/
+│   └── nova_de/
+│       ├── __init__.py
+│       ├── ui/
+│       │   ├── __init__.py
+│       │   └── main_window.py
+│       └── core/
+│           └── __init__.py
+└── examples/

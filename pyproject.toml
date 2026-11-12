@@ -1,0 +1,47 @@
+# ==========================================================
+# 🚀 nova-de 企业级打包配置
+# ==========================================================
+[build-system]
+requires = ["setuptools>=68.2", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nova-de"
+version = "0.1.0"
+description = "A stunning, GPU-accelerated desktop application for PySide6."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "eagleye-china", email = "zdt168@sina.cn" }]
+dependencies = ["PySide6>=6.6", "openai>=1.0", "markdown>=3.5"]
+
+[project.urls]
+Homepage = "https://github.com/eagleye-china/Nova-DE"
+Repository = "https://github.com/eagleye-china/Nova-DE"
+Issues = "https://github.com/eagleye-china/Nova-DE/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# ✅ 关键：资源文件打包配置 (根据你的项目名自动生成)
+[tool.setuptools.package-data]
+"nova_de" = [
+    "ui/*.qml",
+    "qml/*.qml",
+    "resources/*"
+]
+
+# ================= 🛡️ 代码质量与规范约束 =================
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4", "SIM"]
+# 忽略 Qt 命名规范(N802) 和 长行限制(E501)
+ignore = ["N802", "E501"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+ignore_missing_imports = true
